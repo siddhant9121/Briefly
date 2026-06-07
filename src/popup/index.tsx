@@ -5,7 +5,7 @@ export default function Popup() {
  useEffect(() => {
     chrome.storage.local.get('selectedText', (result) => {
         if (result.selectedText) {
-            setSelectedText(result.selectedText)
+            setSelectedText(result.selectedText as string)
         }
     })
 }, [])
