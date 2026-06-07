@@ -14,9 +14,10 @@ return(
     <div> 
         <h1>Briefly</h1>
         <div>
-            <button onClick={() => setMode('student')} >Student</button>
+            <button onClick={() => setMode('Student')} >Student</button>
             <button onClick={() => setMode('Research')} >Research</button>
             <button onClick={() => setMode('Executive')} >Executive</button>
         </div>
         <p> {selectedText}</p>
     </div>
+)
