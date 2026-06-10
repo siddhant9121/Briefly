@@ -1,21 +1,21 @@
 {
     "manifest_version": 3,
-    "name":"Briefly",
+    "name": "Briefly",
     "version": "1.0.0",
     "description": "AI browser Extension",
     "action": {
-   "default_popup":"index.html"
+        "default_popup": "index.html"
     },
-    "permissions": ["activeTab","scripting","storage"],
-"background":{
-    "service_worker": "src/background/index.ts",
-    "type":"module"
-},
-"content_scripts": [
-    {
-        "matches":["*://*/*"],
-        "js": ["src/content/index.ts"],
-        "run_at":"document_idle"
-    }
-]
+    "permissions": ["activeTab", "scripting", "storage"],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ]
 }
