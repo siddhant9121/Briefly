@@ -10,6 +10,18 @@ export default function Popup() {
         }
     })
 }, [])
+useEffect (() =>{
+    const messageListener =(message:{ type:string; text: string }) => {
+        if(message.type === "TEXT_SELECTED") {
+            setSelectedText(message.text)
+        }
+   }
+   chrome.runtime .onMessage.addListener(messageListener)
+   return () =>{
+    chrome.runtime.onMessage.removeListener(messageListener)
+   }
+
+},[])
 const summarize = async () =>{
     const response = await fetch ('http://localhost:8000/summarize', {
         method:'POST',
