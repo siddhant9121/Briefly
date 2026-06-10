@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener((message) => {
-    if (message.type == "TYPE_SELECTED") {
-        chrome.storage.local.set({ selectedtext: message.text })
+    if (message.type === "TEXT_SELECTED") {
+    chrome.storage.local.set({ selectedText: message.text })
     }
 })
