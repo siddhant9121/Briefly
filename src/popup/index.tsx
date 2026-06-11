@@ -25,13 +25,17 @@ export default function Popup() {
         setLoading(false)
     }
 
-    return (
-        <div>
-            <h1>Briefly</h1>
-            <button onClick={summarize}>
-          {loading ? 'Summarizing...' : 'Summarize'}
-            </button>
-            <p>{summary}</p>
-        </div>
-    )
-}
+return (
+    <div className="popup-container">
+        <h1>Briefly</h1>
+        <p className="selected-text">{selectedText}</p>
+        <button 
+            className="summarize-btn" 
+            onClick={summarize}
+            disabled={loading}
+        >
+            {loading ? 'Summarizing...' : 'Summarize'}
+        </button>
+        {summary && <p className="summary-text">{summary}</p>}
+    </div>
+)

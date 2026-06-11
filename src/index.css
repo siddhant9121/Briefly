@@ -55,3 +55,22 @@ box-sizing: border-box;
   box-sizing:border-box;
   line-height: 1.6;
 }
+.summarize-btn{
+  background-color: var(--accent-pink);
+  color: var(--text);
+  border:none;
+  border-radius: 8px;
+  padding: 10px,24px;
+  font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+width: 100%; 
+transition: opacity(0.2s);
+}
+.summarize-btn:hover {
+  opacity :0.85s;
+}
+.summarize-btn:disabled {
+  opacity:0.5s;
+  cursor: not-allowed;
+}
