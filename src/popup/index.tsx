@@ -28,9 +28,8 @@ export default function Popup() {
     return (
         <div>
             <h1>Briefly</h1>
-            <p>{selectedText}</p>
             <button onClick={summarize}>
-                {loading ? 'Summarizing...' : 'Summarize'}
+          {loading ? 'Summarizing...' : 'Summarize'}
             </button>
             <p>{summary}</p>
         </div>
