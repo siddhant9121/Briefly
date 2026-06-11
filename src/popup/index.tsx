@@ -38,4 +38,4 @@ return (
         </button>
         {summary && <p className="summary-text">{summary}</p>}
     </div>
-)
+)}
