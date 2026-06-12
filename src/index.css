@@ -1,5 +1,5 @@
 :root{
-  --bg: #4A4A4A;
+  --bg: #ffffff;
   --accent-pink: #FC6C85;
   --accent-green: #89F336;
   --accent-mint: #ADEBB3;
@@ -13,8 +13,8 @@ body{
   color: var (--text);
 }
 root{
-  width: 380px;
-  height: 400px;
+  width: 200px;
+  height: 250px;
   padding:20px;
   box-sizing : border-box;
 }
@@ -22,12 +22,12 @@ root{
   display:flex;
   flex-direction:column;
   gap:12px;
-  align-items: center;
+  align-items: Left;
 }
 
 h1{
   color: var(--accent-green);
-  font-size: 22px;
+  font-size: 26px;
   margin: 0;
   letter-spacing : 2px;
   text-transform :uppercase;
@@ -64,8 +64,9 @@ box-sizing: border-box;
   font-size: 14px;
 font-weight: 600;
 cursor: pointer;
-width: 100%; 
+width: 80%; 
 transition: opacity(0.2s);
+align-self: ;
 }
 .summarize-btn:hover {
   opacity :0.85s;
@@ -73,4 +74,8 @@ transition: opacity(0.2s);
 .summarize-btn:disabled {
   opacity:0.5s;
   cursor: not-allowed;
+}
+.logo-image {
+ height: 90px;
+ width: auto;
 }
