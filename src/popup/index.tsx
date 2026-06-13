@@ -6,14 +6,33 @@ export default function Popup() {
   const [summary, setSummary] = useState('')
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    chrome.storage.local.get('selectedText', (result) => {
-      if (result.selectedText) {
-        setSelectedText(result.selectedText as string)
-      }
-    })
-  }, [])
+ useEffect(() => {
+  chrome.storage.local.get('selectedText', (result) => {
+    if (result.selectedText) {
+      setSelectedText(result.selectedText as string)
+    }
+  })
 
+  const listener: Parameters<
+    typeof chrome.storage.onChanged.addListener
+  >[0] = (changes, areaName) => {
+    if (
+      areaName === 'local' &&
+      changes.selectedText
+    ) {
+      setSelectedText(
+        changes.selectedText.newValue as string
+      )
+      setSummary('')
+    }
+  }
+
+  chrome.storage.onChanged.addListener(listener)
+
+  return () => {
+    chrome.storage.onChanged.removeListener(listener)
+  }
+}, [])
   const summarize = async () => {
     setLoading(true)
     const response = await fetch('http://localhost:8000/summarize', {
