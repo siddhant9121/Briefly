@@ -4,6 +4,7 @@ import logo from '../assets/logo.jpg'
 export default function Popup() {
   const [selectedText, setSelectedText] = useState('')
   const [summary, setSummary] = useState('')
+  const [question, setQuestion] = useState('')
   const [loading, setLoading] = useState(false)
 
  useEffect(() => {
@@ -58,6 +59,16 @@ export default function Popup() {
         {loading ? 'Summarizing...' : 'Summarize'}
       </button>
       {summary && <p className="summary-text">{summary}</p>}
-    </div>
-  )
-}
+    <div className="chat-input-container">
+  <input
+    type="text"
+    value={question}
+    onChange={(e) => setQuestion(e.target.value)}
+    placeholder="Ask Briefly..."
+    className="question-input"
+  />
+
+  <button className="send-btn">
+    🐼
+  </button>
+</div>
