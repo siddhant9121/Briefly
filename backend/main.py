@@ -18,6 +18,10 @@ app.add_middleware(
 
 class SummarizeRequest(BaseModel):
     text: str
+    question: str
+class ChatRequest(BaseModel):
+    text:str
+    question:str  
 
 @app.post("/summarize")
 async def summarize(request: SummarizeRequest):

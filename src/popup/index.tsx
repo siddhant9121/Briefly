@@ -46,29 +46,45 @@ export default function Popup() {
     setLoading(false)
   }
 
-  return (
-    <div className="popup-container">
-      <div className="logo-badge">
-        <img src={logo} alt="Briefly" className="logo-image" />
-      </div>
-      <button
-        className="summarize-btn"
-        onClick={summarize}
-        disabled={loading}
-      >
-        {loading ? 'Summarizing...' : 'Summarize'}
-      </button>
-      {summary && <p className="summary-text">{summary}</p>}
-    <div className="chat-input-container">
-  <input
-    type="text"
-    value={question}
-    onChange={(e) => setQuestion(e.target.value)}
-    placeholder="Ask Briefly..."
-    className="question-input"
-  />
+return (
+  <div className="popup-container">
+    <div className="logo-badge">
+      <img
+        src={logo}
+        alt="Briefly"
+        className="logo-image"
+      />
+    </div>
 
-  <button className="send-btn">
-    🐼
-  </button>
-</div>
+    <button
+      className="summarize-btn"
+      onClick={summarize}
+      disabled={loading}
+    >
+      {loading ? 'Summarizing...' : 'Summarize'}
+    </button>
+
+    {summary && (
+      <p className="summary-text">
+        {summary}
+      </p>
+    )}
+
+    <div className="chat-input-container">
+      <input
+        type="text"
+        value={question}
+        onChange={(e) =>
+          setQuestion(e.target.value)
+        }
+        placeholder="Ask Briefly..."
+        className="question-input"
+      />
+
+      <button className="send-btn">
+        🐼
+      </button>
+    </div>
+  </div>
+)
+}
