@@ -18,7 +18,6 @@ app.add_middleware(
 
 class SummarizeRequest(BaseModel):
     text: str
-    question: str
 class ChatRequest(BaseModel):
     text:str
     question:str  
@@ -39,3 +38,42 @@ async def summarize(request: SummarizeRequest):
             return {"summary": data["choices"][0]["message"]["content"]}
         else:
             return {"summary": "Error: " + str(data.get("error", {}).get("message", "Unknown error"))}
+        
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    async with httpx.AsyncClient(timeout=120.0) as client:
+        response = await client.post(
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {os.getenv('GROQ_API_KEY')}"
+            },
+            json={
+                "model": "llama-3.1-8b-instant",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": f"""
+Selected text:
+{request.text}
+
+User question:
+{request.question}
+
+Answer clearly and concisely.
+"""
+                    }
+                ]
+            }
+        )
+
+    data = response.json()
+
+    if "choices" in data:
+        return {
+            "answer":
+            data["choices"][0]["message"]["content"]
+        }
+
+    return {
+        "answer": "Error generating response."
+    }
