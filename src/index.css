@@ -27,7 +27,7 @@ background: white;
 .popup-container {
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:6px;
 height: 100%;
 width: 100%;
 padding:12px;
@@ -62,7 +62,7 @@ color: var(--text);
 width: 100%;
 box-sizing:border-box;
 line-height: 1.6;
-max-height: 80px;
+max-height: 160px;
 overflow-y: auto;
 margin:0;
 }
@@ -88,7 +88,7 @@ opacity:0.5;
 cursor: not-allowed;
 }
 .logo-image {
-width: 90px;
+width: 75px;
 height: auto;
 margin-top: -5px;
 margin-left: -5px;

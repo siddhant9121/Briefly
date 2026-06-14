@@ -32,7 +32,6 @@ chrome.storage.onChanged.removeListener(listener)
     }
   }, [])
 const summarize = async () => {
-alert('Summarize clicked')
 setLoading(true)
 try {
 const response = await fetch(
